@@ -1,6 +1,7 @@
 from __future__ import annotations
 from .core.constants import SublimeKind
 from .core.logging import debug
+from .core.logging import notify_err
 from .core.protocol import DocumentUri
 from .core.protocol import Location
 from .core.protocol import LocationLink
@@ -30,7 +31,8 @@ def open_location_async(
 
     def check_success_async(view: sublime.View | None) -> None:
         if not view:
-            sublime.error_message("Unable to open URI")
+            msg = "Unable to open URI"
+            notify_err(msg, msg)
 
     session.open_location_async(location, flags, group).then(check_success_async)
 
