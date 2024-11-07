@@ -63,3 +63,25 @@ def notify_error(window: sublime.Window, message: str, status: str = '❗LSP: se
         print(message)
     else:
         sublime.error_message(message)
+    show_popup_count(window.active_view(),"LSP: see console log…")
+
+from sublime import active_window, PopupFlags
+
+CFG = dict(
+     enable     = True
+    ,prefix     = '❗'
+    ,template   = '''<body id="nv_motion_count"><span>{prefix}{count}</span></body>'''
+    ,maxwidth   = 80
+    ,maxheight  = 30
+)
+def get_popup_html(sym) -> str:
+    return CFG['template'].format_map(dict(prefix=CFG['prefix'],count=sym))
+
+def show_popup_count(view:sublime.View, sym:str, point:int=-1) -> None:
+    view.show_popup(
+      content       = get_popup_html(sym)                   # str
+      , flags       = PopupFlags.HIDE_ON_CHARACTER_EVENT    #
+      , location    = point                                 # Point -1
+      , max_width   = 420                       # DIP
+      , max_height  = 30                      # DIP
+    )
