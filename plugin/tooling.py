@@ -6,8 +6,8 @@ from .api import OnPreStartContext
 from .api import PluginStartError
 from .core.css import css
 from .core.logging import debug
-from .core.logging import notify
-from .core.logging import notify_error
+from .core.logging_notify import notify
+from .core.logging_notify import notify_error
 from .core.registry import windows
 from .core.transports import TransportCallbacks
 from .core.transports import TransportWrapper
