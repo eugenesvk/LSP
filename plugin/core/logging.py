@@ -54,3 +54,15 @@ def exceptions_log(message: str, exs: list[Exception]) -> None:
 def printf(*args: Any, prefix: str = 'LSP') -> None:
     """Print args to the console, prefixed by the plugin name."""
     print(prefix + ":", *args)
+
+
+def notify(msg: str, status: str = '⚠️LSP: see console log…') -> None:
+    """Pick either of the 2 ways to show a message:
+      - via a blocking modal dialog
+      - via a detailed console message and a short status message"""
+    from .settings import userprefs
+    if userprefs().show_ui_blocking_message:
+        sublime.message_dialog(msg)
+    else:
+        sublime.status_message(status)
+        print(msg)

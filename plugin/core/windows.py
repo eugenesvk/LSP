@@ -24,6 +24,7 @@ from .configurations import WindowConfigManager
 from .constants import MESSAGE_TYPE_LEVELS
 from .logging import debug
 from .logging import exception_log
+from .logging import notify
 from .message_request_handler import MessageRequestHandler
 from .panels import LOG_LINES_LIMIT_SETTING_NAME
 from .panels import MAX_LOG_LINES_LIMIT_OFF
@@ -340,12 +341,13 @@ class WindowManager(Manager, WindowConfigChangeListener, ViewStatusHandler):
             message = (f'Failed to start {config.name} - disabling for this window for the duration of the current '
                         'session.\nRe-enable by running "LSP: Enable Language Server In Project" from the Command '
                        f'Palette.\n\n--- Error: ---\n{e}')
+            console = f"⚠️LSP: Failed to start {config.name}…"
             exception_log(f"Unable to initialize language server for {config.name}", e)
             if isinstance(e, CalledProcessError):
                 print("Server output:\n{}".format(e.output.decode('utf-8', 'replace')))
             self._config_manager.disable_config(config.name, only_for_session=True)
             config.erase_view_status(initiating_view)
-            sublime.message_dialog(message)
+            notify(message, console)
             # Continue with handling pending listeners
             self._new_session = None
             sublime.set_timeout_async(self._dequeue_listener_async)
