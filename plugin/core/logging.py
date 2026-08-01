@@ -5,6 +5,7 @@ from typing import Any
 import inspect
 import threading
 import traceback
+import sublime
 
 log_debug = False
 
