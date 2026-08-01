@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from .core.logging import notify_error
+from .core.logging_notify import notify_error
 from .core.edit import show_summary_message
 from .core.protocol import Request
 from .core.registry import get_position

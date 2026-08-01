@@ -5,7 +5,7 @@ from ..protocol import CodeActionKind
 from ..protocol import CodeActionParams
 from ..protocol import Command
 from ..protocol import Diagnostic
-from .core.logging import notify_error
+from .core.logging_notify import notify_error
 from .core.promise import Promise
 from .core.protocol import Error
 from .core.protocol import Request
