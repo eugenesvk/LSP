@@ -16,6 +16,14 @@
         }
     },
     {
+        "caption": "Preferences: LSP Settings User",
+        "command": "open_file",
+        "args": {
+            "file": "${packages}/User/LSP.sublime-settings",
+            "contents": "// Settings in here override those in \"LSP/LSP.sublime-settings\"\n{\n\t$0\n}\n"
+        }
+    },
+    {
         "caption": "Preferences: LSP Key Bindings",
         "command": "edit_settings",
         "args": {
@@ -25,11 +33,27 @@
         }
     },
     {
+        "caption": "Preferences: LSP Key Bindings User",
+        "command": "open_file",
+        "args": {
+            "file": "${packages}/User/Default ($platform).sublime-keymap",
+            "contents": "[\n\t$0\n]\n",
+        }
+    },
+    {
         "caption": "Preferences: LSP Utils Settings",
         "command": "edit_settings",
         "args": {
             "base_file": "${packages}/LSP/lsp_utils.sublime-settings",
             "default": "// Settings in here override those in \"LSP/lsp_utils.sublime-settings\"\n{\n\t$0\n}\n"
+        }
+    },
+    {
+        "caption": "Preferences: LSP Utils Settings User",
+        "command": "open_file",
+        "args": {
+            "file": "${packages}/User/LSP/lsp_utils.sublime-settings",
+            "contents": "// Settings in here override those in \"LSP/lsp_utils.sublime-settings\"\n{\n\t$0\n}\n"
         }
     },
     {
