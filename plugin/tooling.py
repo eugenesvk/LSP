@@ -6,7 +6,6 @@ from .api import OnPreStartContext
 from .api import PluginStartError
 from .core.css import css
 from .core.logging import debug
-from .core.logging_notify import notify
 from .core.logging_notify import notify_error
 from .core.registry import windows
 from .core.transports import TransportCallbacks
@@ -320,7 +319,7 @@ class LspTroubleshootServerCommand(sublime_plugin.WindowCommand):
         view = wm.window.active_view()
         if not view:
             message = 'Troubleshooting must be run with a file opened'
-            notify(self.window, message, message)
+            notify_error(self.window, message, message)
             return
         active_view = view
         configs = wm.get_config_manager().get_configs()
