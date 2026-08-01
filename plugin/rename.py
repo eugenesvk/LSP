@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from .core.logging import notify_err
+from .core.logging import notify_error
 from .core.edit import show_summary_message
 from .core.protocol import Request
 from .core.registry import get_position
@@ -154,8 +154,8 @@ class LspSymbolRenameCommand(LspTextCommand):
 
     def _on_prepare_result(self, pos: int, session_name: str | None, response: PrepareRenameResult | None) -> None:
         if response is None:
-            msg = "The current selection cannot be renamed"
-            notify_err(msg, msg)
+            message = "The current selection cannot be renamed"
+            notify_error(message, message)
             return
         if is_range_response(response):
             r = range_to_region(response, self.view)
@@ -170,8 +170,8 @@ class LspSymbolRenameCommand(LspTextCommand):
         self.view.run_command("lsp_symbol_rename", args)
 
     def _on_prepare_error(self, error: Any) -> None:
-        msg = "Rename error: {}".format(error["message"])
-        notify_err(msg, msg)
+        message = "Rename error: {}".format(error["message"])
+        notify_error(message, message)
 
 
 class RenameSymbolInputHandler(sublime_plugin.TextInputHandler):
