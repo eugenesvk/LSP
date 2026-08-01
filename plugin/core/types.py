@@ -349,7 +349,7 @@ class Settings:
         r("show_signature_help", True)
         r("show_symbol_action_links", False)
         r("show_view_status", True)
-        r("suppress_error_dialogs", False)
+        r("suppress_error_dialogs", True)
 
         # Backwards-compatible with the bool setting
         log_server = s.get("log_server")
