@@ -300,6 +300,7 @@ class Settings:
     show_symbol_action_links = cast("bool", None)
     show_view_status = cast("bool", None)
     show_ui_blocking_message = cast(bool, None)
+    show_ui_blocking_err_message = cast(bool, None)
 
     def __init__(self, s: sublime.Settings) -> None:
         self.update(s)
@@ -350,6 +351,7 @@ class Settings:
         r("show_symbol_action_links", False)
         r("show_view_status", True)
         r("show_ui_blocking_message", True)
+        r("show_ui_blocking_err_message", True)
 
         # Backwards-compatible with the bool setting
         log_server = s.get("log_server")
