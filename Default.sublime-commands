@@ -7,6 +7,8 @@
             "default": "// Settings in here override those in \"LSP/LSP.sublime-settings\"\n{\n\t$0\n}\n"
         }
     },
+{"caption":"Preferences: LSP Settings User"     ,"command":"open_file","args":{"file":"${packages}/User/LSP.sublime-settings",
+  "contents": "// Settings in here override those in \"LSP/LSP.sublime-settings\"\n{\n$0\n}\n"}},
     {
         "caption": "Preferences: LSP Server Configurations",
         "command": "edit_settings",
@@ -15,6 +17,8 @@
             "default": "{\n\t$0\n}\n"
         }
     },
+{"caption":"Preferences: LSP Server Configurations User","command":"open_file","args":{"file":"${packages}/LSP/LanguageServers.sublime-settings",
+  "contents": "// Settings in here override those in \"LSP/LanguageServers.sublime-settings\"\n{\n$0\n}\n"}},
     {
         "caption": "Preferences: LSP Key Bindings",
         "command": "edit_settings",
@@ -24,6 +28,8 @@
             "default": "[\n\t$0\n]\n",
         }
     },
+{"caption":"Preferences: LSP Key Bindings User"     ,"command":"open_file","args":{"file":"${packages}/User/Default ($platform).sublime-keymap",
+  "contents":"[\n$0\n]\n",}},
     {
         "caption": "Preferences: LSP Utils Settings",
         "command": "edit_settings",
@@ -32,6 +38,8 @@
             "default": "// Settings in here override those in \"LSP/lsp_utils.sublime-settings\"\n{\n\t$0\n}\n"
         }
     },
+{"caption":"Preferences: LSP Utils Settings User"       ,"command":"open_file","args":{"file":"${packages}/User/lsp_utils.sublime-settings",
+  "contents": "// Settings in here override those in \"LSP/lsp_utils.sublime-settings\"\n{\n$0\n}\n"}},
     {
         "caption": "LSP Development: Parse VSCode Package JSON From Clipboard",
         "command": "lsp_parse_vscode_package_json"
