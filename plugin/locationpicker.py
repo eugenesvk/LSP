@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from .core.constants import ST_PACKAGES_PATH
 from .core.logging import debug
-from .core.logging import notify_err
+from .core.logging import notify_error
 from .core.views import get_uri_and_position_from_location
 from .core.views import location_to_human_readable
 from .core.views import to_encoded_filename
@@ -37,9 +37,9 @@ def open_location_async(
     def check_success_async(view: sublime.View | None) -> None:
         if not view:
             uri = get_uri_and_position_from_location(location)[0]
-            msg = f"Unable to open URI {uri}"
-            debug(msg)
-            notify_err(msg, msg)
+            message = f"Unable to open URI {uri}"
+            debug(message)
+            notify_error(message, message)
 
     session.open_location_async(location, flags, group).then(check_success_async)
 
