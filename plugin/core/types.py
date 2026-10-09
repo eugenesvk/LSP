@@ -342,7 +342,7 @@ class Settings:
         r("show_diagnostics_in_view_status", True)
         r("show_diagnostics_panel_on_save", 0)
         r("show_diagnostics_severity_level", 2)
-        r("suppress_error_dialogs", False)
+        r("suppress_error_dialogs", True)
         r("show_inlay_hints", False)
         r("show_multiline_diagnostics_highlights", True)
         r("show_multiline_document_highlights", True)
