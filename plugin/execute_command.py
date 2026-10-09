@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from .core.logging import debug
+from .core.logging import notify
 from .core.protocol import Error
 from .core.registry import LspTextCommand
 from .core.views import first_selection_region
@@ -59,9 +60,10 @@ class LspExecuteCommand(LspTextCommand):
         :param command_name: The name of the command that was executed.
         """
         msg = f"command {command_name} failed: {error}"
+        status = f"⚠️LSP: {command_name} failed…"
         debug(msg)
         if window := self.view.window():
-            window.status_message(msg)
+            notify(msg, status)
 
     def _expand_variables(self, command_args: list[Any]) -> list[Any]:
         view = self.view
