@@ -60,7 +60,7 @@ class LspExecuteCommand(LspTextCommand):
         :param command_name: The name of the command that was executed.
         """
         msg = f"command {command_name} failed: {error}"
-        status = f"⚠️LSP: {command_name} failed…"
+        status = f"⚠️LSP: {command_name} failed… See console"
         debug(msg)
         if window := self.view.window():
             notify(msg, status)
